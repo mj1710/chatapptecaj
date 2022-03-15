@@ -3,7 +3,7 @@ from sqla_wrapper import SQLAlchemy
 
 app = Flask(__name__)
 
-db = SQLAlchemy("sqlite:///db.sqlite")
+db = SQLAlchemy("sqlite:///sqlite.db")
 
 
 class Message(db.Model):
@@ -20,7 +20,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/add-message", methods=["Post"])
+@app.route("/add-message", methods=["POST"])
 def add_message():
     username = request.form.get("username")
     text = request.form.get("text")
