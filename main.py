@@ -17,7 +17,7 @@ db.create_all()
 
 @app.route("/")
 def index():
-    return render_template("lol.html")
+    return render_template("index.html")
 
 
 @app.route("/add-message", methods=["Post"])
@@ -33,4 +33,3 @@ def add_message():
 
 if __name__ == "__main__":
     app.run()
-asd
