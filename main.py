@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect
 from sqla_wrapper import SQLAlchemy
-from uuid import uuid4
 import os
 
 app = Flask(__name__)
@@ -25,10 +24,9 @@ class User(db.Model):
 
 db.create_all()
 
-# Začetna stran
 @app.route("/")
-def main():
-    render_template("main.html")
+def sth():
+    return render_template("index.html")
 
 # Signup stran - pridobimo username in password 
 @app.route("/signup", methods=["POST"])
@@ -36,10 +34,10 @@ def signup():
     username = request.form.get("username") 
     password = request.form.get("password")
 
-    user = User(id=id, username=username, password=password)
+    user = User( username=username, password=password)
 
 
-    return render_template("login.html", user)
+    return render_template("chat.html", user)
 
 # CHAT
 
